@@ -1,8 +1,14 @@
-node('test') {
+pipeline {
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'gralde --version'
+                sh 'echo "Hello World"'
+                sh 'gradle --version'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
     }
