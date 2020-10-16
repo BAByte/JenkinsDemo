@@ -3,12 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Hello World"'
                 sh 'gradle --version'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
+                sh 'gradle assemble'
+                sh 'ls app/build/outputs/apk/'
             }
         }
     }
